@@ -30,6 +30,7 @@ public class SearchController {
             ArrayList<HashMap<String, String>> jobs = JobData.findByValue(searchTerm);
           //  if(!jobs.isEmpty()) {
                 model.addAttribute("jobs", jobs);
+                model.addAttribute("searchType", searchType);
            // }
             model.addAttribute("columns", ListController.columnChoices);
             return "search";
@@ -38,6 +39,7 @@ public class SearchController {
             ArrayList<HashMap<String, String>> jobs = JobData.findByColumnAndValue(searchType,searchTerm);
            // if(!jobs.isEmpty()) {
                 model.addAttribute("jobs", jobs);
+                model.addAttribute("searchType", searchType);
            // }
             model.addAttribute("columns", ListController.columnChoices);
             return "search";
