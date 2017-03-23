@@ -40,7 +40,9 @@
 
         <table th:fragment="displayJobs" class="job-listing" th:each="job : ${jobs}">
             <tr th:each="column : ${job}">
-                <td th:text="${#strings.capitalizeWords(column.key)} + ' : ' + ${column.value}"></td>
+                <td th:text="${#strings.capitalizeWords(column.key)}"></td>
+                <td th:unless="${column.key} == 'name'"><a th:href="@{/list/jobs(column=${column.key},value=${column.value})}" th:text="${column.value}"></a></td>
+                <td th:if="${column.key} == 'name'" th:text="${column.value}"></td>
             </tr>
         </table>
 
