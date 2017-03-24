@@ -11,13 +11,23 @@ import java.util.HashMap;
 
 public class TechJobsController {
     private static HashMap<String, String> actionChoices = new HashMap<>();
+    private static HashMap<String, String> columnChoices = new HashMap<>();
 
     public TechJobsController(){
+        columnChoices.put("core competency", "Skill");
+        columnChoices.put("employer", "Employer");
+        columnChoices.put("location", "Location");
+        columnChoices.put("position type", "Position Type");
+        columnChoices.put("all", "All");
         actionChoices.put("search", "Search");
         actionChoices.put("list", "List");
     }
     @ModelAttribute("actions")
     public static HashMap<String, String> getActionChoices(){
         return actionChoices;
+    }
+    @ModelAttribute("columns")
+    public static HashMap<String, String> getColumnChoices(){
+        return columnChoices;
     }
 }
